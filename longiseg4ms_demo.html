@@ -1,18 +1,4 @@
-from pathlib import Path
-import base64
-import os
-import json
-import sys
-import logging
-import argparse
-import pandas
-import requests
-from xml.dom import minidom
-from dotenv import load_dotenv
 
-load_dotenv()
-
-html = """
 <!DOCTYPE html>
 <html>
 <body>
@@ -23,32 +9,3 @@ html = """
 </html>
 
 
-"""
-
-with open('test.py', 'rb') as data:
-    content = base64.b64encode(data.read())
-    
-page_path = 'longiseg4ms_demo.html'
-page_url = f'https://api.github.com/repos/{os.environ["github_owner"]}/{os.environ["github_repository"]}/contents/{page_path}'
-
-headers = { 'Accept': 'application/vnd.github.v3+json', 'Authorization': f'token {os.environ["github_personal_access_token"]}' }
-response = requests.get(page_url, headers=headers)
-
-if response != 200:
-    print(f'Get {page_path} returned {response.status_code}:')
-    print(response.content)
-
-data = {
-    'message': 'update longiseg4ms evaluation',
-    'content': content.decode(), # base64.b64encode(html.encode()),
-    'sha': response['sha'] if response == 200 and 'sha' in response else None
-}
-
-response = requests.put(page_url, headers=headers, data=json.dumps(data))
-# response = requests.put(page_url, headers=headers, json=data)
-
-if response == 200:
-    print(f'The page was successfully published to https://{os.environ["github_owner"]}.github.io/{os.environ["github_repository"]}/{page_path}')
-else:
-    print(f'Put {page_path} returned {response.status_code}:')
-    print(response.content)
