@@ -26,104 +26,129 @@
       <th>FN</th>
       <th>FP</th>
       <th>NPatients</th>
-      <th>CustomNNUnetParameters</th>
-      <th>EvaluationParameters</th>
       <th>ModelDescription</th>
-      <th>PostProcessing</th>
-      <th>TestingDataset</th>
       <th>TrainingDataset</th>
+      <th>TestingDataset</th>
+      <th>PostProcessing</th>
+      <th>CustomNNUnetParameters</th>
+      <th>DisableTTA</th>
+      <th>EvaluationParameters</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Task612_ft1t2_emisepTesting0_model502</td>
-      <td>0.602</td>
-      <td>0.502</td>
-      <td>0.625</td>
-      <td>9.004</td>
-      <td>45</td>
-      <td>26</td>
-      <td>19</td>
-      <td>7</td>
-      <td>17</td>
+      <td>Task701</td>
+      <td>0.527</td>
+      <td>0.468</td>
+      <td>0.214</td>
+      <td>3.832</td>
+      <td>232.0</td>
+      <td>141.0</td>
+      <td>88.0</td>
+      <td>99.0</td>
+      <td>60.0</td>
+      <td>Flair - Challenge custom: OFSEP training &amp; testing, EMISEP training &amp; testing, MaximalHeterogeneity. Compare latest LongiSeg4MS with challenge version. - Tue Nov 30 09:31:14 2021 - git_revision_hash: 830794d047f5e9388a1b3bcc936066f40c610c29</td>
+      <td>{"name": "challengeCustomTraining3", "step": "plan", "modalities": ["flair"]}</td>
+      <td>{"name": "challengeCustomTesting3", "step": "plan", "modalities": ["flair"]}</td>
+      <td>{"steps": ["threshold", "remove_small", "remove_low_keep_largest"], "minpmap": 0.2, "maxpmap": 0.2, "minvol": 4}</td>
+      <td>{'data_augmentation': {'intensify_lesion_augmentation': True, 'mirror_axes': [0, 1, 2]}, 'trainer': {'max_num_epochs': 1000}}</td>
       <td></td>
-      <td>MaxFalsePositiveRatio: 0.7<br>MaxFalsePositiveRatioModerator: 0.65<br>MinLesionVolume: 0.0<br>MinOverlapRatio: 0.1<br></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{"MinLesionVolume": 3.0, "MinOverlapRatio": 0.1, "MaxFalsePositiveRatio": 0.7, "MaxFalsePositiveRatioModerator": 0.65}</td>
     </tr>
     <tr>
-      <td>Task613_ft1_emisepTesting0_model503</td>
-      <td>0.585</td>
-      <td>0.509</td>
-      <td>0.125</td>
-      <td>1.739</td>
-      <td>45</td>
-      <td>27</td>
-      <td>18</td>
-      <td>8</td>
-      <td>17</td>
+      <td>Task701_challengePP</td>
+      <td>0.527</td>
+      <td>0.468</td>
+      <td>0.214</td>
+      <td>3.832</td>
+      <td>232.0</td>
+      <td>141.0</td>
+      <td>88.0</td>
+      <td>99.0</td>
+      <td>60.0</td>
+      <td>Flair - Challenge custom: OFSEP training &amp; testing, EMISEP training &amp; testing, MaximalHeterogeneity. Compare latest LongiSeg4MS with challenge version. - Tue Nov 30 09:31:14 2021 - git_revision_hash: 830794d047f5e9388a1b3bcc936066f40c610c29</td>
+      <td>{"name": "challengeCustomTraining3", "step": "plan", "modalities": ["flair"]}</td>
+      <td>{"name": "challengeCustomTesting3", "step": "plan", "modalities": ["flair"]}</td>
+      <td>{"steps": ["threshold", "remove_small", "remove_low"], "minpmap": 0.2, "maxpmap": 0.2, "minvol": 4}</td>
+      <td>{'data_augmentation': {'intensify_lesion_augmentation': True, 'mirror_axes': [0, 1, 2]}, 'trainer': {'max_num_epochs': 1000}}</td>
       <td></td>
-      <td>MaxFalsePositiveRatio: 0.7<br>MaxFalsePositiveRatioModerator: 0.65<br>MinLesionVolume: 0.0<br>MinOverlapRatio: 0.1<br></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{"MinLesionVolume": 3.0, "MinOverlapRatio": 0.1, "MaxFalsePositiveRatio": 0.7, "MaxFalsePositiveRatioModerator": 0.65}</td>
     </tr>
     <tr>
-      <td>Task612_f_emisepTesting0_model602</td>
-      <td>0.561</td>
-      <td>0.493</td>
+      <td>Task704_ChallengeCustomIdentic_TTA</td>
+      <td>0.526</td>
+      <td>0.475</td>
+      <td>0.429</td>
+      <td>14.948</td>
+      <td>232.0</td>
+      <td>158.0</td>
+      <td>72.0</td>
+      <td>114.0</td>
+      <td>60.0</td>
+      <td>Reproduce challenge model. Flair - Challenge custom: OFSEP training &amp; testing, EMISEP training &amp; testing, MaximalHeterogeneity. Compare latest LongiSeg4MS with challenge version. - Sat Dec  4 15:30:58 2021 - git_revision_hash:</td>
+      <td>{"name": "challengeCustomTraining4", "step": "plan", "modalities": ["flair"]}</td>
+      <td>{"name": "challengeCustomTesting4", "step": "plan", "modalities": ["flair"]}</td>
+      <td>{"steps": ["threshold", "remove_small", "remove_low"], "minpmap": 0.2, "maxpmap": 0.2, "minvol": 4}</td>
+      <td>{'data_augmentation': {'intensify_lesion_augmentation': True, 'mirror_axes': [1]}, 'experiment_planner': 'ExperimentPlanner3D_v21', 'trainer': {'max_num_epochs': 1000}}</td>
+      <td></td>
+      <td>{"MinLesionVolume": 3.0, "MinOverlapRatio": 0.1, "MaxFalsePositiveRatio": 0.7, "MaxFalsePositiveRatioModerator": 0.65}</td>
+    </tr>
+    <tr>
+      <td>Task704_ChallengeCustomIdentic</td>
+      <td>0.524</td>
+      <td>0.466</td>
       <td>0.250</td>
-      <td>4.263</td>
-      <td>45</td>
-      <td>29</td>
-      <td>16</td>
-      <td>12</td>
-      <td>17</td>
+      <td>9.810</td>
+      <td>232.0</td>
+      <td>141.0</td>
+      <td>88.0</td>
+      <td>93.0</td>
+      <td>60.0</td>
+      <td>Reproduce challenge model. Flair - Challenge custom: OFSEP training &amp; testing, EMISEP training &amp; testing, MaximalHeterogeneity. Compare latest LongiSeg4MS with challenge version. - Sat Dec  4 15:30:58 2021 - git_revision_hash:</td>
+      <td>{"name": "challengeCustomTraining4", "step": "plan", "modalities": ["flair"]}</td>
+      <td>{"name": "challengeCustomTesting4", "step": "plan", "modalities": ["flair"]}</td>
+      <td>{"steps": ["threshold", "remove_small", "remove_low"], "minpmap": 0.2, "maxpmap": 0.2, "minvol": 4}</td>
+      <td>{'data_augmentation': {'intensify_lesion_augmentation': True, 'mirror_axes': [1]}, 'experiment_planner': 'ExperimentPlanner3D_v21', 'trainer': {'max_num_epochs': 1000}}</td>
       <td></td>
-      <td>MaxFalsePositiveRatio: 0.7<br>MaxFalsePositiveRatioModerator: 0.65<br>MinLesionVolume: 0.0<br>MinOverlapRatio: 0.1<br></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{"MinLesionVolume": 3.0, "MinOverlapRatio": 0.1, "MaxFalsePositiveRatio": 0.7, "MaxFalsePositiveRatioModerator": 0.65}</td>
     </tr>
     <tr>
-      <td>Task504_f_emisepTesting_model504</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td></td>
-      <td>MaxFalsePositiveRatio: 0.7<br>MaxFalsePositiveRatioModerator: 0.65<br>MinLesionVolume: 0.0<br>MinOverlapRatio: 0.1<br></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>Task705_ChallengeCustomIdentic2</td>
+      <td>0.520</td>
+      <td>0.475</td>
+      <td>0.143</td>
+      <td>1.135</td>
+      <td>232.0</td>
+      <td>155.0</td>
+      <td>75.0</td>
+      <td>106.0</td>
+      <td>60.0</td>
+      <td>Reproduce challenge model. Flair - Challenge custom: OFSEP training &amp; testing, EMISEP training &amp; testing, MaximalHeterogeneity. Compare latest LongiSeg4MS with challenge version. With registration before nyul normalization. - Mon Dec 13 13:44:57 2021 - git_revision_hash:</td>
+      <td>{"name": "challengeCustomTraining4", "step": "plan", "modalities": ["flair"]}</td>
+      <td>{"name": "challengeCustomTesting4", "step": "plan", "modalities": ["flair"]}</td>
+      <td>{"steps": ["threshold", "remove_small", "remove_low"], "minpmap": 0.2, "maxpmap": 0.2, "minvol": 4}</td>
+      <td>{'data_augmentation': {'intensify_lesion_augmentation': True, 'mirror_axes': [1]}, 'experiment_planner': 'ExperimentPlanner3D_v21', 'trainer': {'max_num_epochs': 1000}}</td>
+      <td>None</td>
+      <td>{"MinLesionVolume": 3.0, "MinOverlapRatio": 0.1, "MaxFalsePositiveRatio": 0.7, "MaxFalsePositiveRatioModerator": 0.65}</td>
     </tr>
     <tr>
-      <td>Task612_all_emisepTesting0_model602</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>Task705_Model301</td>
+      <td>0.514</td>
+      <td>0.442</td>
+      <td>0.179</td>
+      <td>4.520</td>
+      <td>232.0</td>
+      <td>144.0</td>
+      <td>87.0</td>
+      <td>107.0</td>
+      <td>60.0</td>
       <td></td>
-      <td>MaxFalsePositiveRatio: 0.7<br>MaxFalsePositiveRatioModerator: 0.65<br>MinLesionVolume: 0.0<br>MinOverlapRatio: 0.1<br></td>
+      <td>{"name": "challengeCustomTraining4", "step": "plan", "modalities": ["flair"]}</td>
+      <td>{"name": "challengeCustomTesting4", "step": "plan", "modalities": ["flair"]}</td>
+      <td>{"steps": ["threshold", "remove_small", "remove_low"], "minpmap": 0.2, "maxpmap": 0.2, "minvol": 4}</td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
+      <td>{"MinLesionVolume": 3.0, "MinOverlapRatio": 0.1, "MaxFalsePositiveRatio": 0.7, "MaxFalsePositiveRatioModerator": 0.65}</td>
     </tr>
   </tbody>
 </table>
