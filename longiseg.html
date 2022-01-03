@@ -26,7 +26,7 @@
 <body>
   <!-- page content -->
 
-  <div id="plot_div" class="ag-theme-alpine" style="height: 600px; width:100%;"></div>
+  <div id="plot_div" class="ag-theme-alpine"></div>
 </body>
 <script>
 
@@ -57,7 +57,7 @@
         rowData.push(data)
       }
       
-      const field_widths = { 'Model': 265, 'F1': 85, 'Dice': 85, 'NLesionsWhenEmptyGT': 85, 'VolumeWhenEmptyGT': 85, 'NLesions': 85, 'TP': 85, 'FN': 85, 'FP': 85, 'NPatients': 85 }
+      const field_widths = { 'Model': 265, 'F1': 85, 'Dice': 85, 'NLesionsWhenEmptyGT': 85, 'VolumeWhenEmptyGT': 85, 'NLesions': 130, 'TP': 85, 'FN': 85, 'FP': 85, 'NPatients': 130 }
       let columnDefs = []
       for (let field of methods[0]) {
         columnDefs.push({ field: field, sortable: true, filter: true, resizable: true, width: field_widths[field] })
