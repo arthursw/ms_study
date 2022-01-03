@@ -36,7 +36,14 @@
     error: function (err, file, inputElem, reason) {
       console.log('error:', err, ', file:', file, ', reason:', reason)
     },
-    complete: function () {
+    complete: function (result, file) {
+      let methods = result.data
+      let errors = results.errors
+      if(methods.length <= 0) {
+        console.log(results.errors)
+        console.log(results.meta)
+        return
+      }
       // Model 	F1 	Dice 	NLesionsWhenEmptyGT 	VolumeWhenEmptyGT 	NLesions 	TP 	FN 	FP 	NPatients 	ModelDescription 	TrainingDataset 	TestingDataset 	PostProcessing 	CustomNNUnetParameters 	DisableTTA 	EvaluationParameters
       let rowData = []
       for (let method of methods.slice(1, methods.length)) {
