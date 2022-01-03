@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="utf-8">
+  <title>LongiSeg4MS Evaluation</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.1/papaparse.min.js" integrity="sha512-EbdJQSugx0nVWrtyK3JdQQ/03mS3Q1UiAhRtErbwl1YL/+e2hZdlIcSURxxh7WXHTzn83sjlh2rysACoJGfb6g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script> -->
+  <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+  <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css">
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    td,
+    tr,
+    th {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- page content -->
+
+  <div id="plot_div" class="ag-theme-alpine" style="height: 600px; width:100%;"></div>
+</body>
+<script>
+
+  // https://www.papaparse.com/docs#results
+  methods = Papa.parse('longiseg.csv', { download: true })
+
+  // Model 	F1 	Dice 	NLesionsWhenEmptyGT 	VolumeWhenEmptyGT 	NLesions 	TP 	FN 	FP 	NPatients 	ModelDescription 	TrainingDataset 	TestingDataset 	PostProcessing 	CustomNNUnetParameters 	DisableTTA 	EvaluationParameters
+
+  let rowData = []
+  for (let method of methods.slice(1, methods.length)) {
+    data = {}
+    for(let [i, field] of methods[0].entries()) {
+      data[field] = method[i]
+    }
+    rowData.push(data)
+  }
+
+  let columnDefs = []
+  for(let field of methods[0]) {
+    columnDefs.push({ field: field, sortable: true, filter: true, resizable: true })
+  }
+
+  const gridOptions = {
+    columnDefs: columnDefs,
+    rowSelection: 'single',
+    rowData: rowData
+  };
+
+  const eGridDiv = document.querySelector('#plot_div');
+
+  // create the grid passing in the div to use together with the columns & data we want to use
+  grid = new agGrid.Grid(eGridDiv, gridOptions);
+  grid.gridOptions.api.sizeColumnsToFit();
+</script>
+
+</html>
