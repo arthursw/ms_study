@@ -56,10 +56,11 @@
         }
         rowData.push(data)
       }
-
+      
+      const field_widths = { 'Model': 265, 'F1': 85, 'Dice': 85, 'NLesionsWhenEmptyGT': 85, 'VolumeWhenEmptyGT': 85, 'NLesions': 85, 'TP': 85, 'FN': 85, 'FP': 85, 'NPatients': 85 }
       let columnDefs = []
       for (let field of methods[0]) {
-        columnDefs.push({ field: field, sortable: true, filter: true, resizable: true })
+        columnDefs.push({ field: field, sortable: true, filter: true, resizable: true, width: field_widths[field] })
       }
 
       const gridOptions = {
