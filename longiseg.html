@@ -38,7 +38,7 @@
     },
     complete: function (result, file) {
       let methods = result.data
-      let errors = results.errors
+      let errors = result.errors
       if(methods.length <= 0) {
         console.log(results.errors)
         console.log(results.meta)
