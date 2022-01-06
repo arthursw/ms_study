@@ -23,10 +23,10 @@
   </style>
 </head>
 
-<body>
+<body style="display: block; position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
   <!-- page content -->
 
-  <div id="plot_div" class="ag-theme-alpine" style="height: 2000px; width:100%;"></div>
+  <div id="plot_div" class="ag-theme-alpine" style="height: 100%; width:100%;"></div>
 </body>
 <script>
 
@@ -74,7 +74,7 @@
       // create the grid passing in the div to use together with the columns & data we want to use
       grid = new agGrid.Grid(eGridDiv, gridOptions);
       // grid.gridOptions.api.sizeColumnsToFit();
-      grid.gridOptions.api.autoSizeAllColumns();
+      grid.gridOptions.api.columnModel.autoSizeAllColumns();
     }
   })
 </script>
